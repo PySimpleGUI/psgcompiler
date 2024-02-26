@@ -1,72 +1,17 @@
-<p align="center">
-  <p align="center"><img width="238" height="135" src="https://pysimplegui.net/images/logos/psglogofull.svg"><p>
 
-  <h2 align="center">psgcompiler</h2>
-  <h2 align="center">A PySimpleGUI Application</h2>
-</p>
-
+[description]
 PySimpleGUI "Compiler"
 
 "Compile" your Python programs into a Windows EXE, a Mac APP, and a Linux binary!
 
 Adds a user-friendly GUI to the popular PyInstaller python package
 
-<p align="center"><img width="531" height="492" src="screenshot.jpg"><p>
-
-
-
-
-
-
-
-
-
-
-
-## Features
-
+[features]
 * Creates single file distribution files for Windows, Mac, and Linux
 * PySimpleGUI front end for PyInstaller
 * All the capabilities of PyInstaller with the ease of a GUI
 
-
-## Installation
-
-### Using PIP with PyPI
-
-The latest official release of PySimpleGUI products can be found on PyPI.  To pip install the demo applications from PyPI, use this command
-
-#### If you use the command `python` on your computer to invoke Python (Windows):
-
-`python -m pip install --upgrade psgcompiler`
-
-#### If you use the command `python3` on your computer to invoke Python (Linux, Mac):
-
-`python3 -m pip install --upgrade psgcompiler`
-
-### Using PIP with GitHub
-
-You can also pip install the PySimpleGUI Applications that are in the PySimpleGUI GitHub account.  The GitHub versions have bug fixes and new programs/features that have not yet been released to PyPI. To directly pip install from that repo:
-
-#### If you use the command `python` on your computer to invoke Python (Windows):
-
-```bash
-python -m pip install --upgrade https://github.com/PySimpleGUI/psgcompiler/zipball/main
-```
-
-#### If you use the command `python3` on your computer to invoke Python (Linux, Mac):
-
-```bash
-python3 -m pip install --upgrade https://github.com/PySimpleGUI/psgcompiler/zipball/main
-```
-
-
-## Usage
-
-Once installed, launch psgcompiler by typing the following in your command line:
-
-`psgcompiler`
-
+[extras]
 ## `PyInstaller` Back-end with a `PySimpleGUI` Front-end
 
 The plan for `psgcompiler` is to provide a GUI interface for a number of the tools available to convert a Python program into a binary executable.  PyInstaller was chosen as the first back-end tool that does the heavy-lifting of converting your code into a binary executable.  The next one being added is `cx_freeze`.
@@ -109,7 +54,7 @@ If your program is relatively simple, then you only need to supply the name of y
 Here is an example session showing only the .pyw file and the .ico file being supplied.  
 
 
-<p align="center"><p align="center"><img width="607" height="563" src="screenshot.jpg"><p><p>
+<p align="center"><img scale="80%" src="screenshot.jpg"><p>
 
 
 ## Additional Back-ends
@@ -119,37 +64,3 @@ Currently in the works is support for additional back-ends.  `cx_freeze` is up n
 ## Create a Shortcut To This Program
 
 If you're a Windows user, then use the [`psgshortcut` application](https://pypi.org/project/psgshortcut/) to make a shortcut to this program so that you can then put on your desktop or pin to your taskbar (or any  other use that stops the need to type `psgcompiler` ever again).
-
-## License & Copyright
-
-Copyright 2023-2024 PySimpleSoft, Inc. and/or its licensors.
-
-This is a free-to-use "Utility" and is licensed under the
-PySimpleGUI License Agreement, a copy of which is included in the
-license.txt file and also available at https://pysimplegui.com/eula.
-
-Please see Section 1.2 of the license regarding the use of this Utility,
-and see https://pysimplegui.com/faq for any questions.
-
-
-## Contributing
-
-We are happy to receive issues describing bug reports and feature
-requests! If your bug report relates to a security vulnerability,
-please do not file a public issue, and please instead reach out to us
-at issues@PySimpleGUI.com.
-
-We do not accept (and do not wish to receive) contributions of
-user-created or third-party code, including patches, pull requests, or
-code snippets incorporated into submitted issues. Please do not send
-us any such code! Bug reports and feature requests should not include
-any source code.
-
-If you nonetheless submit any user-created or third-party code to us,
-(1) you assign to us all rights and title in or relating to the code;
-and (2) to the extent any such assignment is not fully effective, you
-hereby grant to us a royalty-free, perpetual, irrevocable, worldwide,
-unlimited, sublicensable, transferrable license under all intellectual
-property rights embodied therein or relating thereto, to exploit the
-code in any manner we choose, including to incorporate the code into
-PySimpleGUI and to redistribute it under any terms at our discretion.
