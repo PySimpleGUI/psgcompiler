@@ -10,7 +10,7 @@ def readme():
 
 setuptools.setup(
     name="psgcompiler",
-    version="6.0",
+    version="6.0.1",
     author="PySimpleGUI",
     description="A simple, easy to use tool that is a front-end to PyInstaller created with PySimpleGUI to convert your Python programs to executables.",
     long_description=readme(),

@@ -11,7 +11,7 @@ import sys, os,  shutil
 import PyInstaller
 import webbrowser
 
-version = '6.0'
+version = '6.0.1'
 __version__ = version.split()[0]
 
 PYINSTALLER_HELP_URL = r'https://pyinstaller.readthedocs.io/en/stable/when-things-go-wrong.html'
@@ -23,7 +23,55 @@ PYINSTALLER_HELP_URL = r'https://pyinstaller.readthedocs.io/en/stable/when-thing
     Changelog since last major release
     
     6.0         License changed to LGPL3   
+    6.0.1       Accidentally deleted the thread code causing a crash   
 """
+
+'''
+M""""""""M dP                                        dP 
+Mmmm  mmmM 88                                        88 
+MMMM  MMMM 88d888b. 88d888b. .d8888b. .d8888b. .d888b88 
+MMMM  MMMM 88'  `88 88'  `88 88ooood8 88'  `88 88'  `88 
+MMMM  MMMM 88    88 88       88.  ... 88.  .88 88.  .88 
+MMMM  MMMM dP    dP dP       `88888P' `88888P8 `88888P8 
+MMMMMMMMMM
+'''
+
+
+def run_finish(p, window, script, name=None):
+    """
+    Run PyInstaller
+    :param command: Command for PyInstaller
+    :type command: (str)
+    :param script: Script file including path for use in cleanup
+    :type script: (str)
+    :param window: Main PySimpleGUI Window
+    :type window: (Window)
+    :param name: Name of file (if --name variable is used) for use in cleanup
+    :type name: (str)
+    """
+    try:
+        for line in p.stdout:
+            oline = line.decode().rstrip()
+            window.write_event_value('-THREAD CPRINT-', oline)
+        p.wait()
+        window.write_event_value('-THREAD CPRINT-', "[EXE Maker] Cleaning up...")
+
+        source_path, source_filename = os.path.split(script)
+
+        if name:
+            folder_to_remove = os.path.join(source_path, name)
+            file_to_remove = os.path.join(source_path, name + '.spec')
+        else:
+            filename_no_ext, filename_ext = os.path.splitext(source_filename)
+            folder_to_remove = os.path.join(source_path, filename_no_ext)
+            file_to_remove = os.path.join(source_path, filename_no_ext + '.spec')
+
+        shutil.rmtree(folder_to_remove)
+        os.remove(file_to_remove)
+        window.write_event_value('-THREAD FINISHED-', '[EXE Maker] ****************** Finished ******************')
+    except Exception as e:
+        print(f'EXCEPTION in thread {e}')
+        window.write_event_value('-THREAD FAILED-', e)
 
 
 
@@ -230,7 +278,7 @@ def main():
                 command = values['-PYINSTALLER-'] if  values['-PYINSTALLER-'] else 'pyinstaller'
                 p = sg.execute_command_subprocess(command, values['-COMMAND-'], pipe_output=True)
                 thread = Thread(target=run_finish, args=(p, window, values['-SOURCEFILE-'], name)).start()
-            except:
+            except Exception as e:
                 window['CONVERT'].update(disabled=False)
                 sg.PopupError('Something went wrong',
                               'close this window and copy command line from text printed out in main_tab window',
