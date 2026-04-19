@@ -122,15 +122,9 @@ If you're a Windows user, then use the [`psgshortcut` application](https://pypi.
 
 ## License & Copyright
 
-Copyright 2023-2024 PySimpleSoft, Inc. and/or its licensors.
+Copyright 2023-2026 PySimpleGUI.
 
-This is a free-to-use "Utility" and is licensed under the
-PySimpleGUI License Agreement, a copy of which is included in the
-license.txt file and also available at https://pysimplegui.com/eula.
-
-Please see Section 1.2 of the license regarding the use of this Utility,
-and see https://pysimplegui.com/faq for any questions.
-
+Licensed under LGPL3.
 
 ## Contributing
 
